@@ -19,7 +19,7 @@ App({
   },
   getUserInfo:function(cb){
     var that = this
-    if(this.globalData.userInfo){
+    if (this.globalData.userInfo.length){
       typeof cb == "function" && cb(this.globalData.userInfo)
     }else{
       //调用登录接口
@@ -105,10 +105,10 @@ App({
       success: function (res) {
         //--init data
         var data = res.data.arr;
-        var status = res.data.status;
-        if(status!=1){
+        var status = res.data.status || res.statusCode;
+        if (status != 1 || status != 200){
           wx.showToast({
-            title: res.data.err,
+            title: res.data.err || 'unknown error',
             icon: 'none',
             duration: 3000
           });
@@ -147,7 +147,7 @@ App({
   },
 
  globalData:{
-    userInfo:null
+    userInfo:{}
   },
 
   onPullDownRefresh: function (){
