@@ -23,7 +23,6 @@
     "navigationBarBackgroundColor": "#008842",
     "navigationBarTitleText": "蓝果小镇商城",
     "navigationBarTextStyle":"white"
-
   },
    "tabBar": {
     "color": "#858585",
@@ -36,13 +35,13 @@
       "selectedIconPath":"images/icons/btn-tabs_07.png",
       "text": "首页"
     }, 
-        {
+    {
       "pagePath": "pages/category/index",
       "iconPath":"images/icons/btn-tabs_03.png",
       "selectedIconPath":"images/icons/btn-tabs_08.png",
       "text": "分类"
     },
-       {
+    {
       "pagePath": "pages/cart/cart",
       "iconPath":"images/icons/btn-tabs_05.png",
       "selectedIconPath":"images/icons/btn-tabs_09.png",

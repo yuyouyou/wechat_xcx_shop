@@ -166,3 +166,43 @@ button[type="warn"] {
 color:#FFFFFF;
 background-color:#d9002f;
 }
+
+.mask-box {
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  background:#000;
+  opacity:0.4;
+  overflow:hidden;
+  z-index:1000;
+}
+.mask-content {
+  width:80%;
+  position:fixed;
+  left: 10%;
+  top: 28%;
+  z-index:2000;
+  background:#fff;
+  border-radius:5px;
+  text-align:center;
+}
+.mask-content-title {
+  margin:20px 0 15px;
+  font-size:16px;
+}
+.mask-content-text {
+  font-size:14px;
+  color:#777;
+  line-height:22px;
+  margin:10px 28px 20px;
+}
+.mask-content-btn {
+  border:none;
+  background-color:#fff;
+  font-size:16px;
+  color:#55c20c;
+  height:50px;
+  line-height:50px;
+}

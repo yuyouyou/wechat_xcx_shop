@@ -72,3 +72,12 @@
        <view class="button" bindtap='bindCheckout'>结算</view>
 </view>
 </view>
+<!-- 遮罩层 -->
+<view hidden="{{userAuthorize}}">
+  <view class='mask-box'></view>
+  <view class='mask-content'>
+    <view class='mask-content-title'>温馨提示</view>
+    <view class='mask-content-text'>需要授权您的公开信息（昵称、头像等）后才能使用，我们不会将您的信息提供给第三方，现在开启~</view>
+    <button class='mask-content-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">开启授权</button>
+  </view>
+</view>

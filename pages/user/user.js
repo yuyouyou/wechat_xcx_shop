@@ -4,6 +4,7 @@ Page( {
   data: {
     userInfo: {},
     orderInfo:{},
+    userAuthorize: false,
     projectSource: 'https://github.com/liuxuanqiang/wechat-weapp-mall',
     userListInfo: [ {
         icon: '../../images/iconfont-dingdan.png',
@@ -34,7 +35,7 @@ Page( {
        loadingHidden: false,
   },
   onLoad: function () {
-      var that = this
+      var that = this;
       //调用应用实例的方法获取全局数据
       /* app.getUserInfo(function(userInfo){
         //更新数据
@@ -43,13 +44,16 @@ Page( {
           loadingHidden: true
         })
       }); */
-    //更新数据
-    that.setData({
-      userInfo: app.globalData.userInfo,
-      loadingHidden: true
-    })
-
+    if (app.globalData.userInfo && app.globalData.userInfo.nickName) {
+      //更新数据
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        loadingHidden: true,
+        userAuthorize: true
+      })
       this.loadOrderStatus();
+    }
+      
   },
   onShow:function(){
     this.loadOrderStatus();
@@ -91,6 +95,18 @@ Page( {
       }
     });
   },
+  // 自定义函数 获取用户信息
+  getUserInfo: function (e) {
+    app.globalData.userInfo = e.detail.userInfo;
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo();
+    this.setData({
+      userInfo: app.globalData.userInfo,
+      loadingHidden: true,
+      userAuthorize: true
+    })
+    this.loadOrderStatus();
+  }
   /* onShareAppMessage: function () {
     return {
       title: '',

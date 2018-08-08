@@ -7,11 +7,18 @@ Page({
     total: 0,
     carts: [],
     startX: 0, //开始坐标
-    startY: 0
+    startY: 0,
+    userAuthorize: false
   },
   onLoad: function () {
-    this.loadProductData();
-    this.sum();
+    if (app.globalData.userInfo && app.globalData.userInfo.nickName) {
+      //更新数据
+      this.setData({
+        userAuthorize: true
+      })
+      this.loadProductData();
+      this.sum();
+    }
   },
   //手指触摸动作开始 记录起点X坐标
   touchstart: function (e) {
@@ -261,7 +268,13 @@ sum: function() {
   },
 
 onShow:function(){
-  this.loadProductData();
+  if (app.globalData.userInfo && app.globalData.userInfo.nickName) {
+    //更新数据
+    this.setData({
+      userAuthorize: true
+    })
+    this.loadProductData();
+  }
 },
 removeShopCard:function(e){
     var that = this;
@@ -307,30 +320,40 @@ removeShopCard:function(e){
   },
 
 // 数据案例
-  loadProductData:function(){
-    var that = this;
-    wx.request({
-      url: app.d.ceshiUrl + '/Api/Shopping/index',
-      method:'post',
-      data: {
-        user_id: app.d.userId
-      },
-      header: {
-        'Content-Type':  'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        //--init data
-        var cart = res.data.cart;
-        for (var i = 0; i < cart.length; i++) {
-          cart[i].isTouchMove = false
-        }
-        that.setData({
-          carts: cart
-        })
-        that.sum();
-        //endInitData
-      },
-    });
-  },
-
+loadProductData:function(){
+  var that = this;
+  wx.request({
+    url: app.d.ceshiUrl + '/Api/Shopping/index',
+    method:'post',
+    data: {
+      user_id: app.d.userId
+    },
+    header: {
+      'Content-Type':  'application/x-www-form-urlencoded'
+    },
+    success: function (res) {
+      //--init data
+      var cart = res.data.cart;
+      for (var i = 0; i < cart.length; i++) {
+        cart[i].isTouchMove = false
+      }
+      that.setData({
+        carts: cart
+      })
+      that.sum();
+      //endInitData
+    },
+  });
+},
+// 自定义函数 获取用户信息
+getUserInfo: function (e) {
+  var that = this;
+  app.globalData.userInfo = e.detail.userInfo;
+  //调用应用实例的方法获取全局数据
+  app.getUserInfo();
+  that.setData({
+    userAuthorize: true
+  })
+  setTimeout(function () { that.loadProductData(); },500);
+}
 })

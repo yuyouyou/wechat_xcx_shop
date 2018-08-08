@@ -168,6 +168,21 @@ durationChange: function (e) {
 },
 onLoad: function (options) {
   var that = this;
+  /* if (!app.globalData.userInfo.length) {
+    wx.showModal({
+      title: '温馨提示',
+      content: '需要授权您的公开信息(昵称、头像等)，我们不会将您的信息提供给第三方~',
+      showCancel: false,
+      confirmText: "现在开启",
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+        } else if (res.cancel) {
+          //console.log('用户点击取消')
+        }
+      }
+    })
+  } */
   wx.request({
     url: app.d.ceshiUrl + '/Api/Index/index',
     method:'post',
@@ -219,9 +234,9 @@ onShareAppMessage: function () {
   }
 },
 // 自定义函数 获取用户信息
-getUserInfo: function (e) {
+/* getUserInfo: function (e) {
   app.globalData.userInfo = e.detail.userInfo;
   //调用应用实例的方法获取全局数据
   app.getUserInfo();
-}
+} */
 });

@@ -30,6 +30,14 @@ Page({
 
   // 弹窗
   setModalStatus: function (e) {
+    if (!(app.globalData.userInfo && app.globalData.userInfo.nickName)) {
+      wx.showToast({
+        title: "请先返回首页，点击 '我的' 进行登录！",
+        icon: 'none',
+        duration: 3000
+      });
+      return false;
+    }
     var animation = wx.createAnimation({
       duration: 200,
       timingFunction: "linear",
