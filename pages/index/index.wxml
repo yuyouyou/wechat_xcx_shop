@@ -1,5 +1,6 @@
 <!-- index.wxml -->
 <view class="page">
+ <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像信息 </button>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
       <swiper-item>

@@ -217,5 +217,11 @@ onShareAppMessage: function () {
       // 分享失败
     }
   }
+},
+// 自定义函数 获取用户信息
+getUserInfo: function (e) {
+  app.globalData.userInfo = e.detail.userInfo;
+  //调用应用实例的方法获取全局数据
+  app.getUserInfo();
 }
 });
