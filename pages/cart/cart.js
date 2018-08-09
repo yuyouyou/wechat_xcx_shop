@@ -85,7 +85,6 @@ bindMinus: function(e) {
       });
       return false;
     }
-    console.log(num);
     var cart_id = e.currentTarget.dataset.cartid;
     wx.request({
       url: app.d.ceshiUrl + '/Api/Shopping/up_cart',
@@ -139,7 +138,6 @@ bindPlus: function(e) {
     var num = that.data.carts[index].num;
     // 自增
     num ++;
-    console.log(num);
     var cart_id = e.currentTarget.dataset.cartid;
     wx.request({
       url: app.d.ceshiUrl + '/Api/Shopping/up_cart',

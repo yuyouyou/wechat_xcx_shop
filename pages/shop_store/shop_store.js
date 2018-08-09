@@ -68,7 +68,6 @@ Page({
 //窗体加载事件
 onLoad: function (options) {
   var sid = options.shopId;
-  console.log(sid);
   var that = this;
     wx.request({
       url: app.d.ceshiUrl + '/Api/Shangchang/shop_details',
@@ -108,9 +107,7 @@ onLoad: function (options) {
 
   //详情页跳转
 lookdetail: function (e) {
-    console.log(e)
     var lookid = e.currentTarget.dataset;
-    console.log(e.currentTarget.dataset);
     wx.navigateTo({
       url: "../index/detail?id=" + lookid.id
     })

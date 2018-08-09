@@ -83,9 +83,7 @@ Page({
     wx.getStorage({
       key: 'historyKeyList',
       success: function(res) {
-          console.log(res.data);
 
-          //console.log(res.data.indexOf(key))
           if(res.data.indexOf(key) >= 0){
             return;
           }

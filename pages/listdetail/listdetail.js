@@ -152,9 +152,7 @@ onLoad: function (options) {
   },
   //详情页跳转
   lookdetail: function (e) {
-    console.log(e)
     var lookid = e.currentTarget.dataset;
-    console.log(e.currentTarget.dataset);
     wx.navigateTo({
       url: "../index/detail?id=" + lookid.id
     })

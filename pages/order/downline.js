@@ -52,10 +52,8 @@ Page({
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log(res)
         //--init data
         var data = res.data;
-        console.log(data);
         //创建订单成功
         wx.showToast({
           title: data.message,

@@ -5,7 +5,6 @@ Page({
     vou:[],
   },
    like:function(e){
-    console.log(e.currentTarget.dataset.title)
     wx.navigateTo({
       url: '../index/detail?title='+e.currentTarget.dataset.title,
       success: function(res){

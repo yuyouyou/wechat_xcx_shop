@@ -33,7 +33,6 @@ Page({
           success: function (res) {
             //--init data
             var data = res.data;
-            console.log(data);
             //todo
             if(data.result == 'ok'){
               that.data.productData.length =0;
@@ -47,7 +46,6 @@ Page({
   },
   loadProductData:function(){
     var that = this;
-    console.log(this.data);
     wx.request({
       url: app.d.hostUrl + '/ztb/productZBT/GetCollectCategoryList',
       method:'post',
@@ -60,7 +58,6 @@ Page({
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log(res);
         //--init data
         var data = res.data.data;
         that.initProductData(data);
@@ -74,7 +71,6 @@ Page({
   },
   initProductData: function (data){
     for(var i=0; i<data.length; i++){
-      //console.log(data[i]);
       var item = data[i];
 
       item.Price = item.Price/100;

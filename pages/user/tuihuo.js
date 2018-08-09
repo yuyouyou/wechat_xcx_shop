@@ -13,7 +13,6 @@ Page({
     });
   },
   submitReturnData:function(){
-    //console.log(this.data);
     //数据验证
     if(!this.data.remark){
       wx.showToast({
@@ -81,7 +80,6 @@ Page({
 
     wx.chooseImage({
       success: function(res) {
-        console.log(res);
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
           url: 'http://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址

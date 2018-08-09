@@ -42,18 +42,17 @@ Page({
      that.setData({
             currType: 2
         });
-      console.log(list)
 
-            },
-            error:function(e){
-                wx.showToast({
-                    title:'网络异常！',
-                    icon: 'none',
-                    duration:2000,
-                });
-            },
+        },
+        error:function(e){
+            wx.showToast({
+                title:'网络异常！',
+                icon: 'none',
+                duration:2000,
+            });
+        },
 
-        });
+    });
     },
 
 
@@ -65,7 +64,6 @@ Page({
         that.setData({
             currType: currType
         });
-        console.log(currType);
         wx.request({
             url: app.d.ceshiUrl + '/Api/Category/getcat',
             method:'post',

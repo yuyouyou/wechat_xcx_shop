@@ -207,7 +207,6 @@ Page({
     })
   },
   bindPickerChangequArr: function (e) {
-    console.log(this.data.city)
     this.setData({
       quIndex: e.detail.value
     });
