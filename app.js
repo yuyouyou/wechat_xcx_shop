@@ -1,13 +1,13 @@
 // app.js
 App({
   d: {
-    hostUrl: 'http://vendorportal.huashuimu.com.cn',
-    hostImg: 'http://img.ynjmzb.net',
-    hostVideo: 'http://zhubaotong-file.oss-cn-beijing.aliyuncs.com',
+    hostUrl: 'https://vendorportal.huashuimu.com.cn',
+    hostImg: 'https://img.ynjmzb.net',
+    hostVideo: 'https://zhubaotong-file.oss-cn-beijing.aliyuncs.com',
     userId: 1,
     appId:"",
     appKey:"",
-    ceshiUrl:'http://vendorportal.huashuimu.com.cn',
+    ceshiUrl:'https://vendorportal.huashuimu.com.cn',
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

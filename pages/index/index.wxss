@@ -442,3 +442,25 @@ opacity: 0;
   opacity: 0;
 }
 
+.index-banner {
+  position: relative;
+}
+
+.index-search {
+  width:90%;
+  height:70rpx;
+  position:absolute;
+  z-index:1;
+  background:#fff;
+  margin-left:5%;
+  opacity:0.8;
+  border-radius:4px;
+  margin-top:10px;
+}
+
+.index-search-link {
+  font-size: 12px;
+  color: #777;
+  line-height: 70rpx;
+  margin-left: 10px;
+}

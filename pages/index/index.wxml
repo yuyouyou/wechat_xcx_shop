@@ -1,5 +1,9 @@
 <!-- index.wxml -->
 <view class="page">
+<view class='index-banner'>
+  <view class='index-search'>
+    <navigator hover-class='none' class='index-search-link' url="../search/search">搜索商品名称</navigator>
+  </view>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
@@ -7,7 +11,7 @@
       </swiper-item>
     </block>
   </swiper>
-    
+</view>
     <view class="cont">
       <navigator class="pr" url="../product/detail?productId={{item.id}}" hover-class="changestyle"
                  wx:for="{{productData}}">
